@@ -1,0 +1,25 @@
+body {
+  overflow-x: hidden;
+}
+
+.recent-box {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.recent-box>* {
+  margin: 0.3rem;
+}
+
+.recent-box::-webkit-scrollbar {
+  width: 0px;
+}
+
+.sp {
+  background-color: rgb(30, 28, 33);
+}
+
+.text-box {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
