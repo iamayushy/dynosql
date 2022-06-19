@@ -1,9 +1,11 @@
 body {
   overflow-x: hidden;
+  background-color: black;
 }
 
 .recent-box {
   height: 300px;
+  width: 100%;
   overflow-y: scroll;
 }
 
@@ -22,4 +24,18 @@ body {
 .text-box {
   border: 1px solid black;
   padding: 0.5rem;
+}
+
+.code-editor{
+  font-size: 1.3rem;
+  border: 3px solid rgb(69, 69, 69);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+.code-editor::before{
+  content: 'SQL Editor';
+  color: rgb(255, 255, 255);
+  font-size: 1.4rem;
+  padding: 0.4rem;
+  font-weight: 600;
 }
