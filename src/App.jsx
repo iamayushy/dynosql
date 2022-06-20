@@ -1,13 +1,16 @@
+import { Paper} from '@mantine/core'
 import './App.css'
-import { Grid } from '@mantine/core'
-import { Common } from './components/Common'
-import { Recent } from './components/Recent'
-import { Editor } from './components/Editor'
 import { WorkDesk } from './pages/Workdesk'
 
 const App = () => {
   return (
+    <>
+    <Paper className='sp'>
+
+      <img style={{width:'100px', padding:'1rem'}} src="https://atlan.com/assets/img/atlan-blue.6ed81a56.svg" alt="" />
+    </Paper>
     <WorkDesk/>
+    </>
   )
 }
 export default App

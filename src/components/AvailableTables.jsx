@@ -1,6 +1,6 @@
 import { Paper, Group, Button, Text } from '@mantine/core';
 
-const AvailableTables = ({handle}) => {
+const AvailableTables = ({ handleTableData }) => {
     const Tables = [
         'employee_territories',
         'employees',
@@ -8,7 +8,7 @@ const AvailableTables = ({handle}) => {
         'customers',
         'order_details',
         'orders',
-        'product',
+        'products',
         'regions',
         'shippers',
         'suppliers',
@@ -19,10 +19,10 @@ const AvailableTables = ({handle}) => {
             <Text size='lg' weight='500' color='white' >Tables </Text>
             <br />
             <Paper className='sp' shadow='xl' p='md'>
-                
-                <Group  spacing='md'>
-                    {Tables && Tables.map(data => (
-                        <Button onClick={() => handleTableData(data)} color='red'>{data}</Button>
+
+                <Group spacing='md'>
+                    {Tables && Tables.map((data, index) => (
+                        <Button key={index} onClick={() => handleTableData(data)} color='red'>{data}</Button>
                     ))}
                 </Group>
             </Paper>
