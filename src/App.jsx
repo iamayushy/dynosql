@@ -1,5 +1,6 @@
 import { Paper} from '@mantine/core'
 import './App.css'
+import atlan from '../src/asset/atlan.svg'
 import { WorkDesk } from './pages/Workdesk'
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
     <>
     <Paper className='sp'>
 
-      <img style={{width:'100px', padding:'1rem'}} src="https://atlan.com/assets/img/atlan-blue.6ed81a56.svg" alt="" />
+      <img style={{width:'100px', padding:'1rem'}} src={atlan} alt="" />
     </Paper>
     <WorkDesk/>
     </>
