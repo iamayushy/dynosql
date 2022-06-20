@@ -19,6 +19,7 @@ const CommonWords = [
         'CREATE',
         'DEFAULT',
         'DELETE',
+        'TABLE'
 ]
 
 
