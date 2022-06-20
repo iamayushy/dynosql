@@ -7,7 +7,7 @@ const Common = () => {
         <Paper className='sp' shadow="xl" p='md'>
             <Group position='center' spacing='xs'>
                 {CommonWords && CommonWords.map((word, i) => {
-                    return <Button color='red' radius="sm" size="sm" uppercase key={i}>{word}</Button>
+                    return <Button color='blue' radius="sm" size="sm" uppercase key={i}>{word}</Button>
                 })}
             </Group>
         </Paper>

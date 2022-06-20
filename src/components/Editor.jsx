@@ -2,34 +2,33 @@ import { useState } from 'react'
 import CodeMirror from '@uiw/react-codemirror'
 import {sql} from '@codemirror/lang-sql'
 import {oneDark} from '@codemirror/theme-one-dark'
+import { Button } from '@mantine/core'
+import { getDataTable } from '../utils/Table'
+import { useEffect } from 'react'
+
+
 
 const Editor = () => {
     const [query, setQuery] = useState('')
-    const handleData = () => {
-      console.log(query.toLowerCase() === 'select * from employees')
+    const [title, setTitle] = useState({})
+   
+
+    const eachData = async(input) => {
+      const res = await getDataTable(input)
       
-    fetch('https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/csv/categories.csv')
-    .then(res => res.text())
-    .then(ans => {
-        const [headerLine, ...lines] = ans.split('\n');
-        const headers = headerLine.split(',');
-        
-        const objects = lines.map((line, index) =>
-        line.split(',').reduce(
-            (object, value, index) => ({
-              ...object,
-              [headers[index]]: value,
-            }),
-            {}
-          )
-      );
-      console.log(Object.keys(objects[0]))
-    })
-    
+      setTitle(res)
+
     }
+    useEffect(() => {
+        eachData('categories')
+        
+    }, [])
   
+
     
 
+  
+    
     return (
         <div>
            <CodeMirror
@@ -43,8 +42,16 @@ const Editor = () => {
            className='code-editor'
            placeholder={'Your Data Search Starts Here'}
            />
-           <button onClick={handleData}>Run</button>
+           <br />
+           <Button color='red'>Run</Button>
+
+           {title !== null && Object.keys(title[0]).map(ele=> {
+            return <h1 style={{color:'wheat'}}>{ele}</h1>
+           })}
+           {console.log(title)}
         </div>
+
+        
     )
 }
 export { Editor }
