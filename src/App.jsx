@@ -8,7 +8,7 @@ const App = () => {
     <>
     <Paper className='sp'>
 
-      <img style={{width:'100px', padding:'1rem'}} src={atlan} alt="" />
+      <img style={{padding:'1rem'}} width='100px' src={atlan} alt="" />
     </Paper>
     <WorkDesk/>
     </>
