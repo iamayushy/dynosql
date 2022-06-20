@@ -10,3 +10,8 @@
 1. Removed the unwanted JS Code
 2. Removed unwanted imports.
 
+## Performance By Lighthouse
+![Light House Result](https://github.com/iamayushy/dynosql/blob/main/performance.png)
+
+## UI
+![UI IMAGE](https://github.com/iamayushy/dynosql/blob/main/ui.png)
