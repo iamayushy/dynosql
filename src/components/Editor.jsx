@@ -1,57 +1,26 @@
-import { useState } from 'react'
 import CodeMirror from '@uiw/react-codemirror'
 import {sql} from '@codemirror/lang-sql'
 import {oneDark} from '@codemirror/theme-one-dark'
-import { Button } from '@mantine/core'
-import { getDataTable } from '../utils/Table'
-import { useEffect } from 'react'
+import { Button, Text } from '@mantine/core'
 
+const Editor = ({suggetion, handleValues, handleCode}) => {
 
-
-const Editor = () => {
-    const [query, setQuery] = useState('')
-    const [title, setTitle] = useState({})
-   
-
-    const eachData = async(input) => {
-      const res = await getDataTable(input)
-      
-      setTitle(res)
-
-    }
-    useEffect(() => {
-        eachData('categories')
-        
-    }, [])
-  
-
-    
-
-  
-    
     return (
         <div>
+        <Text weight='500' size='lg' color='white'>SQL Editor</Text>
+           <br />
            <CodeMirror
-           value={query}
-           height='400px'
+           value={suggetion}
+           height='480px'
            theme={oneDark}
            extensions={sql()}
-           onChange={(value) => {
-            setQuery(value)
-           }}
+           onChange={handleValues}
            className='code-editor'
            placeholder={'Your Data Search Starts Here'}
            />
            <br />
-           <Button color='red'>Run</Button>
-
-           {title !== null && Object.keys(title[0]).map(ele=> {
-            return <h1 style={{color:'wheat'}}>{ele}</h1>
-           })}
-           {console.log(title)}
+           <Button onClick={handleCode} color='red'>Run</Button>
         </div>
-
-        
     )
 }
 export { Editor }
