@@ -1,14 +1,13 @@
 import { Paper} from '@mantine/core'
 import './App.css'
-import atlan from '../src/asset/atlan.svg'
 import { WorkDesk } from './pages/Workdesk'
 
 const App = () => {
   return (
     <>
-    <Paper className='sp'>
+    <Paper style={{marginTop:'-1.4rem', backgroundColor:'#111111'}}>
 
-      <img style={{padding:'1rem'}} width='100px' src={atlan} alt="" />
+      <h3 style={{color:'blue', padding:'1.3rem', fontSize:'1.4rem'}}>Atlan Text Editor</h3>
     </Paper>
     <WorkDesk/>
     </>
