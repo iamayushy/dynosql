@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from '@mantine/core'
+import { Grid, Text } from '@mantine/core'
 import { Common } from '../components/Common'
 import { Recent } from '../components/Recent'
 import { Editor } from '../components/Editor'
@@ -30,23 +30,25 @@ const WorkDesk = () => {
         if (editorValue.length === 0) {
             return
         }
-        if(editorValue.toLowerCase() === 'select * from employee_territories'.toLowerCase() ||
-        editorValue.toLowerCase() === 'select * from employees'.toLowerCase()||
-        editorValue.toLowerCase() === 'select * from categories'.toLowerCase()||
-        editorValue.toLowerCase() === 'select * from customers'.toLowerCase()||
-        editorValue.toLowerCase() === 'select * from order_details'.toLowerCase()||
-        editorValue.toLowerCase() === 'select * from orders'.toLowerCase()||
-        editorValue.toLowerCase() === 'select * from regions'.toLowerCase()||
-        editorValue.toLowerCase() === 'select * from shippers'.toLowerCase()||
-        editorValue.toLowerCase() === 'select * from suppliers'.toLowerCase()||
-        editorValue.toLowerCase() === 'select * from territories'.toLowerCase())
+        
+        if(editorValue.toLowerCase() === 'select * from employee_territories'.trim().toLowerCase() ||
+        editorValue.toLowerCase() === 'select * from employees'.trim().toLowerCase()||
+        editorValue.toLowerCase() === 'select * from categories'.trim().toLowerCase()||
+        editorValue.toLowerCase() === 'select * from customers'.trim().toLowerCase()||
+        editorValue.toLowerCase() === 'select * from order_details'.trim().toLowerCase()||
+        editorValue.toLowerCase() === 'select * from orders'.trim().toLowerCase()||
+        editorValue.toLowerCase() === 'select * from regions'.trim().toLowerCase()||
+        editorValue.toLowerCase() === 'select * from shippers'.trim().toLowerCase()||
+        editorValue.toLowerCase() === 'select * from suppliers'.trim().toLowerCase()||
+        editorValue.toLowerCase() === 'select * from territories'.trim().toLowerCase())
         {
-            const arrayStr = editorValue.split(' ')
+            const arrayStr = editorValue.trim().split(' ')
             const lastValue = arrayStr[arrayStr.length - 1]
 
             handle(lastValue)
             
         }
+        setResult([])
         setRecentQueries([editorValue, ...recentQueries])
     }
 
@@ -86,6 +88,10 @@ const WorkDesk = () => {
           
         </Grid>
         <Grid p='xl' gutter='xl'>
+            {result.length === 0 && 
+            <div style={{textAlign:'center', width:'100vw'}}>
+            <Text weight={600} size='xl' color='white' >Does The Table Exist 🧐</Text>
+            </div>}
             <ResultTable
             header={result.length > 0 && Object.keys(result[0])}
             body={result.length > 0 && result}/>
